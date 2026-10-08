@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Online Event Registration</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+
+            font-family: Arial, sans-serif;
+
+            background: #e8f0fe;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+
+        h1 {
+            text-align: center;
+
+            color: #222;
+
+            margin-bottom: 25px;
+
+            font-size: 28px;
+        }
+
+
+        label {
+            display: block;
+
+            margin-top: 15px;
+
+            margin-bottom: 6px;
+
+            font-weight: bold;
+
+            color: #333;
+        }
+
+
+        input,
+        select {
+            display: block;
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 6px;
+
+            font-size: 15px;
+        }
+
+
+        input:focus,
+        select:focus {
+            outline: none;
+
+            border-color: #007bff;
+        }
+
+
+        small {
+            display: block;
+
+            color: red;
+
+            margin-top: 4px;
+
+            min-height: 18px;
+        }
+
+
+        .buttons {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        button {
+            flex: 1;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background: #007bff;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+
+        button:hover {
+            background: #0056b3;
+        }
+
+
+        #resetBtn {
+            background: #6c757d;
+        }
+
+
+        #resetBtn:hover {
+            background: #545b62;
+        }
+
+
+        #successMessage {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            background: #d4edda;
+
+            color: #155724;
+
+            border-radius: 6px;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 95%;
+
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <h1>Online Event Registration</h1>
+
+
+        <form id="registrationForm">
+
+
+            <label for="name">
+                Participant Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name">
+
+            <small id="nameError"></small>
+
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="text"
+                id="email"
+                placeholder="Enter your email">
+
+            <small id="emailError"></small>
+
+
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                type="text"
+                id="phone"
+                placeholder="Enter 10 digit phone number"
+                maxlength="10">
+
+            <small id="phoneError"></small>
+
+
+
+            <label for="event">
+                Event Name
+            </label>
+
+            <select id="event">
+
+                <option value="">
+                    Select Event
+                </option>
+
+                <option value="Tech Fest">
+                    Tech Fest
+                </option>
+
+                <option value="Hackathon">
+                    Hackathon
+                </option>
+
+                <option value="Workshop">
+                    Workshop
+                </option>
+
+                <option value="Cultural Fest">
+                    Cultural Fest
+                </option>
+
+            </select>
+
+            <small id="eventError"></small>
+
+
+
+            <label for="type">
+                Participation Type
+            </label>
+
+            <select id="type">
+
+                <option value="">
+                    Select Type
+                </option>
+
+                <option value="Individual">
+                    Individual
+                </option>
+
+                <option value="Team">
+                    Team
+                </option>
+
+            </select>
+
+            <small id="typeError"></small>
+
+
+
+            <label for="participants">
+                Number of Participants
+            </label>
+
+            <input
+                type="number"
+                id="participants"
+                min="1"
+                max="10"
+                placeholder="Enter number of participants">
+
+            <small id="participantsError"></small>
+
+
+
+            <div class="buttons">
+
+                <button type="submit">
+                    Submit
+                </button>
+
+                <button
+                    type="reset"
+                    id="resetBtn">
+                    Reset
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+        <div id="successMessage"></div>
+
+
+    </div>
+
+
+    <script src="/script.js"></script>
+
+
+</body>
+
+</html>
